@@ -1,3 +1,4 @@
+import Providers from "@/components/Provider";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 
@@ -21,9 +22,11 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body className={inter.className}>{children}</body>
-      </html>
+      <Providers>
+        <html lang="en">
+          <body className={inter.className}>{children}</body>
+        </html>
+      </Providers>
     </ClerkProvider>
   );
 }

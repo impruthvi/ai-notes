@@ -11,11 +11,43 @@ import {
 import { Plus } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
 
 type Props = {};
 
 const CreateNoteDialog = (props: Props) => {
   const [name, setName] = React.useState<string>("");
+
+  const createNotebook = useMutation({
+    mutationFn: async () => {
+      const response = await axios.post("/api/createNoteBook", {
+        name,
+      });
+
+      return response.data;
+    },
+  });
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // check if the name is empty then alert the message
+    if (!name) {
+      alert("Please enter the name of the notebook");
+      return;
+    }
+
+    // call the mutation
+    createNotebook.mutate(undefined, {
+      onSuccess: ({ note_id }) => {
+        console.log("You are successfuly created a new notebook", { note_id });
+      },
+      onError: (error) => {
+        console.log(`There is an error while creating a new notebook ${error}`);
+      },
+    });
+  };
 
   return (
     <Dialog>
@@ -35,7 +67,7 @@ const CreateNoteDialog = (props: Props) => {
           </DialogDescription>
         </DialogHeader>
 
-        <form>
+        <form onSubmit={handleSubmit}>
           <Input
             placeholder="Name..."
             onChange={(e) => setName(e.target.value)}
