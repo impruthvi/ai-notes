@@ -8,16 +8,19 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Plus } from "lucide-react";
+import { Loader2, Plus } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
+import { useRouter } from "next/navigation";
+
 
 type Props = {};
 
 const CreateNoteDialog = (props: Props) => {
   const [name, setName] = React.useState<string>("");
+  const router = useRouter();
 
   const createNotebook = useMutation({
     mutationFn: async () => {
@@ -42,6 +45,7 @@ const CreateNoteDialog = (props: Props) => {
     createNotebook.mutate(undefined, {
       onSuccess: ({ note_id }) => {
         console.log("You are successfuly created a new notebook", { note_id });
+        router.push(`/notebook/${note_id}`);
       },
       onError: (error) => {
         console.log(`There is an error while creating a new notebook ${error}`);
@@ -78,7 +82,10 @@ const CreateNoteDialog = (props: Props) => {
             <Button variant="secondary" type="reset">
               Cancle
             </Button>
-            <Button variant="premium" type="submit">
+            <Button variant="premium" type="submit" disabled={createNotebook.isLoading}>
+              {createNotebook.isLoading && (
+                <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+              )}
               Create
             </Button>
           </div>
