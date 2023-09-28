@@ -10,6 +10,7 @@
     "db:push": "drizzle-kit push:pg --config ./drizzle.config.ts"
   },
   "dependencies": {
+    "@clerk/backend": "^0.29.3",
     "@clerk/nextjs": "^4.23.2",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-separator": "^1.0.3",
