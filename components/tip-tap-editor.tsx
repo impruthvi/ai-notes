@@ -19,6 +19,8 @@ const TipTapEditor = ({ note }: Props) => {
     note.editorState || `<h1>${note.name}</h1>`
   );
 
+  const [isCompletion, setCompletion] = React.useState(false);
+
   const { complete, completion } = useCompletion({
     api: "/api/completion",
   });
@@ -77,12 +79,20 @@ const TipTapEditor = ({ note }: Props) => {
     });
   }, [debouncedEditorState]);
 
+  const onClick = () => {
+    const prompt = editor?.getHTML();
+    complete(prompt!);
+  };
   return (
     <>
-      <div className="flex justify-evenly content-center">
+      <div className="flex gap-3">
         {editor && <TipTapMenuBar editor={editor} />}
         <Button disabled variant="outline">
           {saveNote.isLoading ? "Saving..." : "Saved"}
+        </Button>
+
+        <Button variant="outline" onClick={onClick}>
+          Generate
         </Button>
       </div>
       
