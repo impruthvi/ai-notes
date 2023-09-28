@@ -1,20 +1,37 @@
+"use client"
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { UserButton, auth } from "@clerk/nextjs";
 import { Separator } from "@/components/ui/separator";
 import CreateNoteDialog from "@/components/create-note-dialog";
-import { db } from "@/lib/db";
-import { $notes } from "@/lib/db/schema";
-import { eq } from "drizzle-orm";
 import Image from "next/image";
+import axios from "axios";
+import { useMutation } from "@tanstack/react-query";
+import React, { useEffect } from "react";
 
-const DashboardPage = async () => {
-  const { userId } = auth();
-  const notes = await db
-    .select()
-    .from($notes)
-    .where(eq($notes.userId, userId!));
+const DashboardPage = () => {
+  const [notes, setNotes] = React.useState<any>([]);
+
+  const getNotebooks = useMutation({
+    mutationFn: async () => {
+      const response = await axios.get("/api/getNotes");
+      return response.data;
+    },
+  });
+
+  useEffect(() => {
+    getNotebooks.mutate(undefined, {
+      onSuccess: (data) => {
+        setNotes(data);
+      },
+      onError: (error) => {
+        console.log(`There is an error while getting notebook ${error}`);
+      },
+    });
+  }
+  , []);
   return (
     <>
       <div className=" min-h-screen">
