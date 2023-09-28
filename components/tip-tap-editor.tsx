@@ -13,7 +13,7 @@ import axios from "axios";
 type Props = { note: NoteType };
 
 const TipTapEditor = ({ note }: Props) => {
-  const [editorState, setEditorState] = React.useState(note.editorState || "");
+  const [editorState, setEditorState] = React.useState(note.editorState || `<h1>${note.name}</h1>`);
 
   const saveNote = useMutation({
     mutationFn: async () => {
