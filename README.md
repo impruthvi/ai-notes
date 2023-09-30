@@ -1,34 +1,82 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# AI Notebook
 
-## Getting Started
+## Description
 
-First, run the development server:
+AI Notes is a web application that simplifies note-taking by providing auto-completion for your notes and generating images to enhance your notes. It leverages OpenAI's GPT-3 API to assist you in creating comprehensive notes efficiently. The project is built using Next.js and styled with Tailwind CSS.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+<!-- Add project features is My AI -->
+
+## Features
+
+- Auto-completion for note-taking using OpenAI's GPT-3 API
+- Generate images to complement your notes
+- Responsive design for seamless use on various devices
+
+<!-- Add project technologies is My AI -->
+
+## Technologies
+
+Project is created with:
+
+<!-- add stripe substiption -->
+- Next.js
+- Tailwind CSS
+- OpenAI API
+- Clrek Authentication
+- Shadcn
+<!-- Add project setup is My AI -->
+
+## Setup
+
+To run this project, install it locally using npm:
+
+```
+$ cd ai-notes
+$ npm install
+```
+Rename the .env.example to .env
+```
+$ npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<!-- Add project demo is My AI -->
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Demo
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+[AI Notebook](https://ai-notes-impruthvi.vercel.app/)
 
-## Learn More
+<!-- Add project status is My AI -->
 
-To learn more about Next.js, take a look at the following resources:
+## Status
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Project is: _Done_
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<!-- Add project inspiration is My AI -->
 
-## Deploy on Vercel
+## Inspiration
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This project is based on [OpenAI Codex](https://openai.com/blog/openai-codex/).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<!-- Add project contact is My AI -->
+
+## Contact
+
+Created by [@impruthvi](https://impruthvi.netlify.app/) - feel free to contact me!
+
+<!-- Add project license is My AI -->
+
+## License
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+<!-- Add project contribution is My AI -->
+
+## Contribution
+
+Contributions are always welcome!
+
+<!-- Add project support is My AI -->
+
+## Support
+
+Give a ⭐️ if you like this project!
