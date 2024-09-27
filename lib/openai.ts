@@ -14,7 +14,7 @@ export async function generateImagePrompt(name: string) {
         {
           role: "system",
           content:
-            "You are an creative and helpful AI assistance capable of generating interesting thumbnail descriptions for my notes. Your output will be fed into the DALLE API to generate a thumbnail. The description should be minimalistic and flat styled",
+            "Generate a minimalistic, flat-style thumbnail that visually captures the essence of the note's title. Use simple, clean shapes and icons related to note-taking, such as notebooks, pencils, or digital devices. Incorporate subtle, soft colors with a flat background to maintain a professional and modern look. The design should be clear and easily recognizable at a small size, ensuring that it conveys the main idea of the note without excessive detail",
         },
         {
           role: "user",
